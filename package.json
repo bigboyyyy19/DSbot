@@ -1,0 +1,35 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/form-data": "^3.0.1",
+    "@discordjs/opus": "^0.9.0",
+    "canvacord": "^5.4.8",
+    "canvas": "^2.11.2",
+    "captcha-canvas": "3.1",
+    "discord-anti-spam": "2.5.0",
+    "discord-together": "^1.3.31",
+    "discord-transcripts": "^3.6.4",
+    "discord.js": "^13.0.1",
+    "express": "^4.17.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.1.0",
+    "flatted": "^3.0.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "generate-password": "^1.7.0",
+    "node-fetch": "^2.6.1",
+    "papaparse": "^5.2.0",
+    "random-puppy": "^1.1.0",
+    "scrape-youtube": "^2.4.0",
+    "setimmediate": "^1.0.5",
+    "winston": "^3.2.1",
+    "ytdl-core": "^4.11.4"
+  }
+}

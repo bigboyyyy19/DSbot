@@ -1,0 +1,573 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Random",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "messageActionRows": [],
+          "varname": "randomJoin",
+          "min": "1000",
+          "max": "9999",
+          "savevartype": "temp"
+        },
+        {
+          "name": "HelloEmbed",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "1031976159052824576",
+          "color": "2F3136",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Hello ${tempVars.newuser.displayName}, welcome to **Pawak Games**!",
+          "thumbnail": "",
+          "image": "https://media.discordapp.net/attachments/1031983546950242385/1034920826111266906/banner.gif",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "SetUserLVL",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "lvl",
+          "fieldvalue": "1"
+        },
+        {
+          "name": "createC",
+          "category": "Channel Action",
+          "type": "Create Channel",
+          "messageActionRows": [],
+          "channelname": "${tempVars.newuser.displayName}-betaUser${tempVars.randomJoin}",
+          "chancategory": "~~ 𝗕𝗲𝘁𝗮𝗨𝘀𝗲𝗿 ~~",
+          "reason": "",
+          "channeltype": "Text",
+          "savetovariable": "NewBetaUser",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "SetUserXP",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "field": "xp",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "wait_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "3",
+          "unit": "seconds"
+        },
+        {
+          "name": "Permissions",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.NewBetaUser.id}",
+          "permid": "${tempVars.newuser.id}",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ],
+          "allow": "Allow"
+        },
+        {
+          "name": "NewBetaUserEmbed",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${tempVars.NewBetaUser.id}",
+          "color": "009DFF",
+          "title": "Beta-key",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Hello <@${tempVars.newuser.id}>, Welcome to Pawak Games.\nSurely you are wondering what you need to do now. It's simple. In one minute you will have the **Beta Key** rank.\nAnd then you're already in the beta of the server.\n**Please follow the rules and don't mess it up! ** \n\nThank you very much!!! ( ̄m ̄)",
+          "thumbnail": "https://cdn.discordapp.com/attachments/1031983546950242385/1032315229767483452/Logo6.png",
+          "image": "",
+          "footer": "Pawak System",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "wait",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "60",
+          "unit": "seconds"
+        },
+        {
+          "name": "AddRole",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "rolename": "Beta-key"
+        },
+        {
+          "name": "AddRole_1",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "rolename": "━━━━━━ 𝚂𝚎𝚛𝚟𝚎𝚛 ━━━━━━"
+        },
+        {
+          "name": "deleteC",
+          "category": "Channel Action",
+          "type": "Delete Channel",
+          "messageActionRows": [],
+          "channelname": "${tempVars.NewBetaUser.id}",
+          "reason": ""
+        }
+      ],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "randomXP",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "messageActionRows": [],
+          "varname": "randomXP",
+          "min": "1",
+          "max": "10",
+          "savevartype": "temp"
+        },
+        {
+          "name": "Work",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "xp",
+          "oper": "+",
+          "value": "${tempVars.randomXP}"
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [],
+      "var": {}
+    },
+    {
+      "name": "Channel Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdchannel"
+      }
+    },
+    {
+      "name": "Channel Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedchannel"
+      }
+    },
+    {
+      "name": "Channel Pins Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatepinschannel"
+      }
+    },
+    {
+      "name": "Channel Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatechannel"
+      }
+    },
+    {
+      "name": "Emoji Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdemoji"
+      }
+    },
+    {
+      "name": "Emoji Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedemoji"
+      }
+    },
+    {
+      "name": "Emoji Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatedemoji"
+      }
+    },
+    {
+      "name": "Guild Ban Remove",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Available",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Speaking",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Unavailable",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Typing Start",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "User Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Button Interaction",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Switch",
+          "category": "Control",
+          "type": "Switch Case",
+          "valueActions": {
+            "openTicketBTN": [
+              {
+                "name": "Create-Channel",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "Ticket-${tempVars.buttoninteraction.user.tag}",
+                "chancategory": "1041344626407243796",
+                "reason": "Ticket open",
+                "channeltype": "Text",
+                "savetovariable": "UseropenTicket",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Wait",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "3",
+                "unit": "seconds"
+              },
+              {
+                "name": "Permissions-Channel",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.UseropenTicket.id}",
+                "permid": "${tempVars.buttoninteraction.member.id}",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "TicketEmbed",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "close ticket",
+                        "customid": "closeTicketBTN",
+                        "style": "DANGER",
+                        "emoji": "<:Close:1041347408610725989>",
+                        "URL": "",
+                        "ephemeral": true
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${tempVars.UseropenTicket.id}",
+                "color": "2F3136",
+                "title": "Info",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "User:\n<@${tempVars.buttoninteraction.member.id}>\n\nUser Id:\n**${tempVars.buttoninteraction.member.id}**",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "BOOL_TRUE@@",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Reply-Interaction",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Ticket is open!"
+              }
+            ],
+            "closeTicketBTN": [
+              {
+                "name": "Delete-Channel",
+                "category": "Channel Action",
+                "type": "Delete Channel",
+                "messageActionRows": [],
+                "channelname": "${tempVars.buttoninteraction.channelId}",
+                "reason": "Ticket close"
+              }
+            ],
+            "PartnerBTN": [
+              {
+                "name": "Create-Channel_1",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "Ticket-${tempVars.buttoninteraction.user.tag}",
+                "chancategory": "1053681515621515264",
+                "reason": "Partner ticket open",
+                "channeltype": "Text",
+                "savetovariable": "PartnerTicket",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Wait_1",
+                "category": "Control",
+                "type": "Wait",
+                "messageActionRows": [],
+                "waitduration": "3",
+                "unit": "seconds"
+              },
+              {
+                "name": "Permissions-Channel_1",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.PartnerTicket.id}",
+                "permid": "${tempVars.buttoninteraction.member.id}",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "TicketEmbed_1",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [],
+                "channelname": "${tempVars.PartnerTicket.id}",
+                "color": "2F3136",
+                "title": "Info",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Hello user ${tempVars.buttoninteraction.member.displayName}, I guess they opened a ticket to become a partner of Pawak Games.\nI hope they know the benefits, but also the conditions they need!",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "BOOL_TRUE@@",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "Reply-Interaction_1",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Partner ticket is open!"
+              }
+            ],
+            "deleteDoc": [
+              {
+                "name": "DeleteDocs",
+                "category": "Message",
+                "type": "Delete Message",
+                "messageActionRows": [],
+                "varname": "${tempVars.buttoninteraction.message.id}",
+                "channelname": "${tempVars.buttoninteraction.channelId}"
+              },
+              {
+                "name": "Reply-Interaction_1_1",
+                "category": "Interaction",
+                "type": "Reply To Interaction With Message",
+                "messageActionRows": [],
+                "interactionobject": "${tempVars.buttoninteraction}",
+                "messagetext": "Documentation has been deleted!"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "varname": "${tempVars.buttoninteraction.customId}"
+        }
+      ],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Select Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Command Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    }
+  ]
+}
